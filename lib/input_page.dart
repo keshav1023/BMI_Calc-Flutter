@@ -2,11 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'Icon_content.dart';
 import 'reusable_card.dart';
-
-const bottomContainerHeight = 80.0;
-const bottomContainerColour = Color(0xFFEB1555);
-const activeCardColour = Color(0xFF1D1E33);
-const inactiveCardColour = Color(0xFF111328);
+import 'constants.dart';
 
 enum Gender {
   none,
@@ -29,6 +25,7 @@ class _InputPageState extends State<InputPage> {
         title: Text('BMI CALCULATOR'),
       ),
       body: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
           Expanded(
               child: Row(
@@ -41,8 +38,8 @@ class _InputPageState extends State<InputPage> {
                     });
                   },
                   colour: selectedGender == Gender.male
-                      ? activeCardColour
-                      : inactiveCardColour,
+                      ? kActiveCardColour
+                      : kInactiveCardColour,
                   cardChild: IconContent(
                     icon: FontAwesomeIcons.mars,
                     label: 'MALE',
@@ -57,8 +54,8 @@ class _InputPageState extends State<InputPage> {
                     });
                   },
                   colour: selectedGender == Gender.female
-                      ? activeCardColour
-                      : inactiveCardColour,
+                      ? kActiveCardColour
+                      : kInactiveCardColour,
                   cardChild: IconContent(
                     icon: FontAwesomeIcons.venus,
                     label: 'FEMALE',
@@ -69,7 +66,31 @@ class _InputPageState extends State<InputPage> {
           )),
           Expanded(
             child: ReusableCard(
-              colour: activeCardColour,
+              colour: kActiveCardColour,
+              cardChild: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Text(
+                    'HEIGHT',
+                    style: kLabelTextStyle,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.baseline,
+                    textBaseline: TextBaseline.alphabetic,
+                    children: <Widget>[
+                      Text(
+                        '180',
+                        style: kNumberTextStyle,
+                      ),
+                      Text(
+                        'cm',
+                        style: kLabelTextStyle,
+                      ),
+                    ],
+                  )
+                ],
+              ),
             ),
           ),
           Expanded(
@@ -77,21 +98,21 @@ class _InputPageState extends State<InputPage> {
             children: <Widget>[
               Expanded(
                 child: ReusableCard(
-                  colour: activeCardColour,
+                  colour: kActiveCardColour,
                 ),
               ),
               Expanded(
                 child: ReusableCard(
-                  colour: activeCardColour,
+                  colour: kActiveCardColour,
                 ),
               ),
             ],
           )),
           Container(
-            color: bottomContainerColour,
+            color: kBottomContainerColour,
             margin: EdgeInsets.only(top: 10),
             width: double.infinity,
-            height: bottomContainerHeight,
+            height: kBottomContainerHeight,
           ),
         ],
       ),
