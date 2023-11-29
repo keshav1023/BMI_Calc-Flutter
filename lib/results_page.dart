@@ -39,6 +39,7 @@ class ResultsPage extends StatelessWidget {
                   ),
                   Text(
                     'Your BMI result is quite low, you shouldeat more !!',
+                    textAlign: TextAlign.center,
                     style: kBodyTextStyle,
                   ),
                 ],
