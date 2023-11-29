@@ -1,3 +1,4 @@
+import 'constants.dart';
 import 'package:flutter/material.dart';
 
 class ResultsPage extends StatelessWidget {
@@ -7,7 +8,19 @@ class ResultsPage extends StatelessWidget {
       appBar: AppBar(
         title: Text('BMI CALCULATOR'),
       ),
-      body: Text('Hello'),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: <Widget>[
+          Expanded(
+            child: Container(
+              child: Text(
+                'Your Result',
+                style: kTitleTextStyle,
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
